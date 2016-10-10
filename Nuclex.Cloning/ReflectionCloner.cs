@@ -17,6 +17,10 @@ You should have received a copy of the IBM Common Public
 License along with this library
 */
 #endregion
+
+using System.Collections;
+using System.Linq;
+
 namespace Nuclex.Cloning
 {
     using System;
@@ -401,6 +405,10 @@ namespace Nuclex.Cloning
             {
                 return deepCloneArrayPropertyBased((Array) original, originalType.GetElementType());
             }
+            if (originalType.GetInterfaces().Contains(typeof(IList)))
+            {
+                return deepCloneListPropertyBased((IList)original);
+            }
             return deepCloneComplexPropertyBased(original);
         }
 
@@ -522,6 +530,22 @@ namespace Nuclex.Cloning
                     }
                 }
             }
+
+            return clone;
+        }
+
+
+        /// <summary>Clones a List using property-based value transfer</summary>
+        /// <param name="original">Original List that will be cloned</param>
+        /// <param name="elementType">Type of elements the original List contains</param>
+        /// <returns>A clone of the original list</returns>
+        private static object deepCloneListPropertyBased(IList original)
+        {
+            Type originalType = original.GetType();
+            var clone = (IList)Activator.CreateInstance(originalType);
+
+            foreach (object value in original)
+                clone.Add(deepCloneSinglePropertyBased(value));
 
             return clone;
         }
