@@ -59,7 +59,7 @@ namespace Nuclex.Cloning
                 // Arrays need to be cloned element-by-element
                 Type elementType = clonedType.GetElementType();
 
-                if (elementType.IsPrimitive || (elementType == typeof (string)))
+                if (elementType.IsPrimitive || elementType.IsEnum || (elementType == typeof (string)))
                 {
                     // For primitive arrays, the Array.Clone() method is sufficient
                     transferExpressions.Add(

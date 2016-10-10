@@ -44,17 +44,13 @@ namespace Nuclex.Cloning
         public static TCloned ShallowFieldClone<TCloned>(TCloned objectToClone)
         {
             Type originalType = objectToClone.GetType();
-            if (originalType.IsPrimitive || (originalType == typeof (string)))
+            if (originalType.IsPrimitive || originalType.IsValueType || (originalType == typeof(string)))
             {
                 return objectToClone; // Being value types, primitives are copied by default
             }
             if (originalType.IsArray)
             {
                 return (TCloned) shallowCloneArray(objectToClone);
-            }
-            if (originalType.IsValueType)
-            {
-                return objectToClone; // Value types can be copied directly
             }
             return (TCloned) shallowCloneComplexFieldBased(objectToClone);
         }
@@ -68,17 +64,13 @@ namespace Nuclex.Cloning
         public static TCloned ShallowPropertyClone<TCloned>(TCloned objectToClone)
         {
             Type originalType = objectToClone.GetType();
-            if (originalType.IsPrimitive || (originalType == typeof (string)))
+            if (originalType.IsPrimitive || originalType.IsValueType || (originalType == typeof(string)))
             {
                 return objectToClone; // Being value types, primitives are copied by default
             }
             if (originalType.IsArray)
             {
                 return (TCloned) shallowCloneArray(objectToClone);
-            }
-            if (originalType.IsValueType)
-            {
-                return (TCloned) shallowCloneComplexPropertyBased(objectToClone);
             }
             return (TCloned) shallowCloneComplexPropertyBased(objectToClone);
         }
@@ -227,15 +219,10 @@ namespace Nuclex.Cloning
                     object originalValue = propertyInfo.GetValue(original, null);
                     if (originalValue != null)
                     {
-                        if (propertyType.IsPrimitive || (propertyType == typeof (string)))
+                        if (propertyType.IsPrimitive || propertyType.IsValueType || (propertyType == typeof(string)))
                         {
                             // Primitive types can be assigned directly
                             propertyInfo.SetValue(clone, originalValue, null);
-                        }
-                        else if (propertyType.IsValueType)
-                        {
-                            // Value types are seen as part of the original type and are thus recursed into
-                            propertyInfo.SetValue(clone, shallowCloneComplexPropertyBased(originalValue), null);
                         }
                         else if (propertyType.IsArray)
                         {
@@ -268,7 +255,7 @@ namespace Nuclex.Cloning
         private static object deepCloneSingleFieldBased(object original)
         {
             Type originalType = original.GetType();
-            if (originalType.IsPrimitive || (originalType == typeof (string)))
+            if (originalType.IsPrimitive || originalType.IsValueType || (originalType == typeof (string)))
             {
                 return original; // Creates another box, does not reference boxed primitive
             }
@@ -302,7 +289,7 @@ namespace Nuclex.Cloning
                 if (originalValue != null)
                 {
                     // Primitive types can be assigned directly
-                    if (fieldType.IsPrimitive || (fieldType == typeof (string)))
+                    if (fieldType.IsPrimitive || fieldType.IsValueType || (fieldType == typeof (string)))
                     {
                         fieldInfo.SetValue(clone, originalValue);
                     }
@@ -406,7 +393,7 @@ namespace Nuclex.Cloning
         private static object deepCloneSinglePropertyBased(object original)
         {
             Type originalType = original.GetType();
-            if (originalType.IsPrimitive || (originalType == typeof (string)))
+            if (originalType.IsPrimitive || originalType.IsValueType || (originalType == typeof (string)))
             {
                 return original; // Creates another box, does not reference boxed primitive
             }
@@ -438,7 +425,7 @@ namespace Nuclex.Cloning
                     object originalValue = propertyInfo.GetValue(original, null);
                     if (originalValue != null)
                     {
-                        if (propertyType.IsPrimitive || (propertyType == typeof (string)))
+                        if (propertyType.IsPrimitive || propertyType.IsValueType || (propertyType == typeof (string)))
                         {
                             // Primitive types can be assigned directly
                             propertyInfo.SetValue(clone, originalValue, null);
@@ -470,7 +457,7 @@ namespace Nuclex.Cloning
         /// <returns>A clone of the original array</returns>
         private static object deepCloneArrayPropertyBased(Array original, Type elementType)
         {
-            if (elementType.IsPrimitive || (elementType == typeof (string)))
+            if (elementType.IsPrimitive || elementType.IsEnum || (elementType == typeof (string)))
             {
                 return original.Clone();
             }

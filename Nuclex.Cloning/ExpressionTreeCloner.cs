@@ -54,7 +54,7 @@ namespace Nuclex.Cloning
                 return default(TCloned);
             }
 
-            Func<object, object> cloner = getOrCreateDeepFieldBasedCloner(typeof (TCloned));
+            Func<object, object> cloner = getOrCreateDeepFieldBasedCloner(objectToClone.GetType());
             return (TCloned) cloner(objectToCloneAsObject);
         }
 
@@ -73,7 +73,7 @@ namespace Nuclex.Cloning
                 return default(TCloned);
             }
 
-            Func<object, object> cloner = getOrCreateDeepPropertyBasedCloner(typeof (TCloned));
+            Func<object, object> cloner = getOrCreateDeepPropertyBasedCloner(objectToClone.GetType());
             return (TCloned) cloner(objectToCloneAsObject);
         }
 
@@ -91,7 +91,7 @@ namespace Nuclex.Cloning
                 return default(TCloned);
             }
 
-            Func<object, object> cloner = getOrCreateShallowFieldBasedCloner(typeof (TCloned));
+            Func<object, object> cloner = getOrCreateShallowFieldBasedCloner(objectToClone.GetType());
             return (TCloned) cloner(objectToCloneAsObject);
         }
 
@@ -109,7 +109,7 @@ namespace Nuclex.Cloning
                 return default(TCloned);
             }
 
-            Func<object, object> cloner = getOrCreateShallowPropertyBasedCloner(typeof (TCloned));
+            Func<object, object> cloner = getOrCreateShallowPropertyBasedCloner(objectToClone.GetType());
             return (TCloned) cloner(objectToCloneAsObject);
         }
 
