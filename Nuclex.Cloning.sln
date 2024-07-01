@@ -1,9 +1,35 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclex.Cloning", "src\Nuclex.Cloning\Nuclex.Cloning.csproj", "{D2833BEB-BBA9-4614-9398-35F9850D46A7}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclex.Cloning", "src\Nuclex.Cloning\Nuclex.Cloning.csproj", "{9910263A-03DF-4986-B638-619ADCCA0833}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclex.Cloning.Test", "test\Nuclex.Cloning.Test\Nuclex.Cloning.Test.csproj", "{798DCDE1-6A97-49F0-AC2B-C9F64D50A755}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclex.Cloning.Test", "test\Nuclex.Cloning.Test\Nuclex.Cloning.Test.csproj", "{1ABD3EA3-374D-4B95-95FF-7F8F498E0C71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B84E9389-171E-4A32-9092-C62CB37CC921}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		azure-pipelines.yml = azure-pipelines.yml
+		build.cmd = build.cmd
+		build.ps1 = build.ps1
+		build.sh = build.sh
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		FodyWeavers.xml = FodyWeavers.xml
+		NuGet.Config = NuGet.Config
+		README.md = README.md
+		renovate.json = renovate.json
+		ReSharper.DotSettings = ReSharper.DotSettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{BC3F4CBD-4892-42E1-AB6B-86880672608A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{AC9BAB8B-E0AA-49C0-99FC-3327E5CAFECD}"
+	ProjectSection(SolutionItems) = preProject
+		test\Directory.Build.props = test\Directory.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,16 +37,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D2833BEB-BBA9-4614-9398-35F9850D46A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2833BEB-BBA9-4614-9398-35F9850D46A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2833BEB-BBA9-4614-9398-35F9850D46A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2833BEB-BBA9-4614-9398-35F9850D46A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{798DCDE1-6A97-49F0-AC2B-C9F64D50A755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{798DCDE1-6A97-49F0-AC2B-C9F64D50A755}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{798DCDE1-6A97-49F0-AC2B-C9F64D50A755}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{798DCDE1-6A97-49F0-AC2B-C9F64D50A755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9910263A-03DF-4986-B638-619ADCCA0833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9910263A-03DF-4986-B638-619ADCCA0833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9910263A-03DF-4986-B638-619ADCCA0833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9910263A-03DF-4986-B638-619ADCCA0833}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ABD3EA3-374D-4B95-95FF-7F8F498E0C71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ABD3EA3-374D-4B95-95FF-7F8F498E0C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ABD3EA3-374D-4B95-95FF-7F8F498E0C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ABD3EA3-374D-4B95-95FF-7F8F498E0C71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9910263A-03DF-4986-B638-619ADCCA0833} = {BC3F4CBD-4892-42E1-AB6B-86880672608A}
+		{1ABD3EA3-374D-4B95-95FF-7F8F498E0C71} = {AC9BAB8B-E0AA-49C0-99FC-3327E5CAFECD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F210CA67-C051-452E-B3E7-C0420D38F7A4}
 	EndGlobalSection
 EndGlobal

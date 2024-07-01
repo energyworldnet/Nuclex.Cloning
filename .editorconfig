@@ -1,0 +1,45 @@
+# https://editorconfig.org
+
+root = true
+
+###############################
+# Global Options              #
+###############################
+[*]
+charset = utf-8
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+# https://marketplace.visualstudio.com/items?itemName=PaulHarrington.EditorGuidelines
+guidelines = 100 1px solid 40ff0000
+
+# JSON Options
+[*.json]
+indent_size = 2
+
+# Shell Script Options
+[*.sh]
+end_of_line = lf
+[*.{cmd, bat, ps1}]
+end_of_line = crlf
+
+# Visual Studio Solution Files
+[*.sln]
+indent_style = tab
+
+# XML Project Options
+[*.{csproj,vcxproj,vcxproj.filters,proj,nativeproj,locproj}]
+indent_size = 2
+
+# XML Options
+[*.{xml,stylecop,resx,ruleset}]
+indent_size = 2
+
+# XML Config Options
+[*.{props,targets,config,nuspec}]
+indent_size = 2
+
+# YAML Files
+[*.{yml,yaml}]
+indent_size = 2

@@ -1,0 +1,12 @@
+<Project>
+
+  <PropertyGroup>
+    <PackageProjectUrl>https://github.com/energyworldnet/Nuclex.Cloning</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/energyworldnet/Nuclex.Cloning.git</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ewn.Defaults" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>

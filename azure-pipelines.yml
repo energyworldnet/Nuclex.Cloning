@@ -1,0 +1,19 @@
+name: $(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)
+
+trigger:
+- main
+
+resources:
+  repositories:
+    - repository: nuke
+      type: github
+      name: energyworldnet/Ewn.Nuke
+      endpoint: proddev
+
+variables:
+- template: templates/vars.yml@nuke
+
+extends:
+  template: templates/library.yml@nuke
+  parameters:
+    vmImage: ubuntu-latest
