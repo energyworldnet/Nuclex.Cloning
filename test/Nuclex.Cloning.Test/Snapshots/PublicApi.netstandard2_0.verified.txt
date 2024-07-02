@@ -1,0 +1,29 @@
+﻿namespace Nuclex.Cloning
+{
+    public sealed class ExpressionTreeCloner : Nuclex.Cloning.Interfaces.ICloneFactory
+    {
+        public ExpressionTreeCloner() { }
+        public static TCloned DeepFieldClone<TCloned>(TCloned objectToClone) { }
+        public static TCloned DeepPropertyClone<TCloned>(TCloned objectToClone) { }
+        public static TCloned ShallowFieldClone<TCloned>(TCloned objectToClone) { }
+        public static TCloned ShallowPropertyClone<TCloned>(TCloned objectToClone) { }
+    }
+    public sealed class ReflectionCloner : Nuclex.Cloning.Interfaces.ICloneFactory
+    {
+        public ReflectionCloner() { }
+        public static TCloned DeepFieldClone<TCloned>(TCloned objectToClone) { }
+        public static TCloned DeepPropertyClone<TCloned>(TCloned objectToClone) { }
+        public static TCloned ShallowFieldClone<TCloned>(TCloned objectToClone) { }
+        public static TCloned ShallowPropertyClone<TCloned>(TCloned objectToClone) { }
+    }
+}
+namespace Nuclex.Cloning.Interfaces
+{
+    public interface ICloneFactory
+    {
+        TCloned DeepFieldClone<TCloned>(TCloned objectToClone);
+        TCloned DeepPropertyClone<TCloned>(TCloned objectToClone);
+        TCloned ShallowFieldClone<TCloned>(TCloned objectToClone);
+        TCloned ShallowPropertyClone<TCloned>(TCloned objectToClone);
+    }
+}

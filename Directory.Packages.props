@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+    <EnablePackageVersionOverride>false</EnablePackageVersionOverride>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Ewn.Defaults" Version="2024.5.31.5" />
+    <PackageVersion Include="Ewn.Defaults.Testing" Version="2024.5.31.5" />
+  </ItemGroup>
+</Project>
