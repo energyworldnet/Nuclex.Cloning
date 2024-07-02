@@ -8,7 +8,7 @@
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Nuclex.Cloning\Nuclex.Cloning.csproj" />
+    <ProjectReference Include="../../src/Nuclex.Cloning/Nuclex.Cloning.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NUnit" Version="3.12.0" />

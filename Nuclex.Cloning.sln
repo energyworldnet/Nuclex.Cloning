@@ -1,16 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclex.Cloning", "Nuclex.Cloning\Nuclex.Cloning.csproj", "{D2833BEB-BBA9-4614-9398-35F9850D46A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclex.Cloning", "src\Nuclex.Cloning\Nuclex.Cloning.csproj", "{D2833BEB-BBA9-4614-9398-35F9850D46A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclex.Cloning.Tests", "Nuclex.Cloning.Tests\Nuclex.Cloning.Tests.csproj", "{798DCDE1-6A97-49F0-AC2B-C9F64D50A755}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B6B9E377-EB6B-41CA-BE4D-A59AEE40964E}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclex.Cloning.Test", "test\Nuclex.Cloning.Test\Nuclex.Cloning.Test.csproj", "{798DCDE1-6A97-49F0-AC2B-C9F64D50A755}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
