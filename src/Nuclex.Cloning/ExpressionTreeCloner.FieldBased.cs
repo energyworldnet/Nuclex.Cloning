@@ -51,7 +51,7 @@ namespace Nuclex.Cloning
             var transferExpressions = new List<Expression>();
             var variables = new List<ParameterExpression>();
 
-            if (clonedType.IsPrimitive || (clonedType == typeof (string)))
+            if (clonedType.IsPrimitive || clonedType.IsValueType || (clonedType == typeof (string)))
             {
                 // Primitives and strings are copied on direct assignment
                 transferExpressions.Add(original);
@@ -506,7 +506,7 @@ namespace Nuclex.Cloning
                 FieldInfo fieldInfo = fieldInfos[index];
                 Type fieldType = fieldInfo.FieldType;
 
-                if (fieldType.IsPrimitive || (fieldType == typeof (string)))
+                if (fieldType.IsPrimitive || fieldType.IsValueType || (fieldType == typeof (string)))
                 {
                     // Primitive types and strings can be transferred by simple assignment
                     transferExpressions.Add(
@@ -566,7 +566,7 @@ namespace Nuclex.Cloning
                 Expression fieldClone;
 
                 Type elementType = fieldType.GetElementType();
-                if (elementType.IsPrimitive || (elementType == typeof (string)))
+                if (elementType.IsPrimitive || elementType.IsValueType || (elementType == typeof (string)))
                 {
                     // For primitive arrays, the Array.Clone() method is sufficient
                     fieldClone = generateFieldBasedPrimitiveArrayTransferExpressions(

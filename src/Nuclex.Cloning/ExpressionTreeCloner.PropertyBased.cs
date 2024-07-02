@@ -49,7 +49,7 @@ namespace Nuclex.Cloning
             var transferExpressions = new List<Expression>();
             var variables = new List<ParameterExpression>();
 
-            if (clonedType.IsPrimitive || (clonedType == typeof (string)))
+            if (clonedType.IsPrimitive || clonedType.IsValueType || (clonedType == typeof (string)))
             {
                 // Primitives and strings are copied on direct assignment
                 transferExpressions.Add(original);
@@ -155,7 +155,7 @@ namespace Nuclex.Cloning
             var transferExpressions = new List<Expression>();
             var variables = new List<ParameterExpression>();
 
-            if (clonedType.IsPrimitive || (clonedType == typeof (string)))
+            if (clonedType.IsPrimitive || clonedType.IsValueType || (clonedType == typeof (string)))
             {
                 // Primitives and strings are copied on direct assignment
                 transferExpressions.Add(original);
@@ -240,7 +240,7 @@ namespace Nuclex.Cloning
                 {
                     Type propertyType = propertyInfo.PropertyType;
 
-                    if (propertyType.IsPrimitive || (propertyType == typeof (string)))
+                    if (propertyType.IsPrimitive || propertyType.IsValueType || (propertyType == typeof (string)))
                     {
                         transferExpressions.Add(
                             Expression.Assign(
@@ -394,7 +394,7 @@ namespace Nuclex.Cloning
                 {
                     // The innermost loop clones an actual array element
 
-                    if (elementType.IsPrimitive || (elementType == typeof (string)))
+                    if (elementType.IsPrimitive || elementType.IsValueType || (elementType == typeof (string)))
                     {
                         // Primitive array elements can be copied by simple assignment. This case
                         // should not occur since Array.Clone() should be used instead.
@@ -555,7 +555,7 @@ namespace Nuclex.Cloning
                 {
                     Type propertyType = propertyInfo.PropertyType;
 
-                    if (propertyType.IsPrimitive || (propertyType == typeof (string)))
+                    if (propertyType.IsPrimitive || propertyType.IsValueType || (propertyType == typeof (string)))
                     {
                         // Primitive types and strings can be transferred by simple assignment
                         transferExpressions.Add(
@@ -646,7 +646,7 @@ namespace Nuclex.Cloning
                 Expression propertyClone;
 
                 Type elementType = propertyType.GetElementType();
-                if (elementType.IsPrimitive || (elementType == typeof (string)))
+                if (elementType.IsPrimitive || elementType.IsValueType || (elementType == typeof (string)))
                 {
                     // For primitive arrays, the Array.Clone() method is sufficient
                     propertyClone = generatePropertyBasedPrimitiveArrayTransferExpressions(
